@@ -1,0 +1,49 @@
+{% extends 'partials/template.twig' %}
+
+{% block title %}Contact Me - Romain Khanoyan's Portfolio{% endblock %}
+
+{% block nav %}
+<li class="nav-item"><a class="nav-link" href="{{ path_for('home') }}">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ path_for('projects') }}">Projects</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ path_for('about') }}">About Me</a></li>
+{% endblock %}
+  
+{% block content %}
+<div class="row">
+  <form class="col s8 offset-s2 ">
+    <div class="row">
+      <div class="input-field col s4 offset-s1">
+        <input id="first_name" type="text" class="validate">
+        <label for="first_name">First Name</label>
+      </div>
+      <div class="input-field col s4 offset-s2">
+        <input id="last_name" type="text" class="validate">
+        <label for="last_name">Last Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s10 offset-s1">
+        <input id="subject" type="text" class="validate">
+        <label for="subject">Subject</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s10 offset-s1">
+        <textarea id="textarea" class="materialize-textarea"></textarea>
+        <label for="textarea">Text</label>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="row">
+    <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action">Submit</button>
+    <script>
+        let btn = document.querySelector('.btn')
+        btn.addEventListener('click', () => {
+            let subject = document.querySelector('#subject').value,
+                textarea = document.querySelector('#textarea').value
+            window.location.href = `mailto:romain.khanoyan@gmail.com?subject=${subject}&body=${textarea}`
+        })   
+    </script>
+</div>
+{% endblock %}

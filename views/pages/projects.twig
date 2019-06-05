@@ -1,0 +1,27 @@
+{% extends 'partials/template.twig' %}
+
+{% block title %}My Projects - Romain Khanoyan's Portfolio{% endblock %}
+
+{% block nav %}
+<li class="nav-item"><a class="nav-link" href="{{ path_for('home') }}">Home</a></li>
+<li class="nav-item active"><a class="nav-link" href="{{ path_for('projects') }}">Projects</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ path_for('about') }}">About Me</a></li>
+{% endblock %}
+
+{% block content %}
+
+{% for _project in projects %}
+<hr class="featurette-divider">
+
+<div class="row featurette">
+  <div class="col-md-7">
+    <h2 class="featurette-heading">{{_project.title}}</h2>
+    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+    <a href="{{ path_for('project', { id: _project.id }) }}"><button type="button" class="btn btn-info">Read more</button></a>
+  </div>
+  <div class="col-md-5">
+    <img class="featurette-image img-fluid mx-auto" src="{{_project.img_link}}" alt="image de {{_project.title}}">
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

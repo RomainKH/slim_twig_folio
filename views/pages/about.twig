@@ -1,0 +1,61 @@
+{% extends 'partials/template.twig' %}
+
+{% block title %}About me - Romain Khanoyan's Portfolio{% endblock %}
+
+{% block nav %}
+<li class="nav-item"><a class="nav-link" href="{{ path_for('home') }}">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ path_for('projects') }}">Projects</a></li>
+<li class="nav-item active"><a class="nav-link" href="{{ path_for('about') }}">About Me</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="col s8 m4 offset-m4 l4 offset-l4">
+  <div class="card-panel grey lighten-5 z-depth-1">
+    <div class="row valign-wrapper">
+      <div class="col s2">
+        <img src="images/0.jpg" alt="photo romain khanoyan" class="circle responsive-img">
+      </div>
+      <div class="col s8">
+        <span class="black-text">
+          Hi ! I am Romain, the owner of this portfolio ! I am a student in HETIC where I learn web development and design, you can contact me and hire me or even learn more in the section under this one !
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+<h3 class="center">Users Reviews</h3>
+    <ul class="collection col s8 offset-s2">
+      <li class="collection-item avatar">
+        <img src="images/0.jpg" alt="" class="circle">
+        <span class="title">"A great developper"</span>
+        <p>Marry Westbrook</p>
+      </li>
+      <li class="collection-item avatar">
+        <img src="images/0.jpg" alt="" class="circle">
+        <span class="title">"He a great guy, I recommand him!"</span>
+        <p>Pierre Jean
+        </p>
+      </li>
+      <li class="collection-item avatar">
+        <img src="images/0.jpg" alt="" class="circle">
+        <span class="title">"I really liked his work, he truly is passionate about the web"</span>
+        <p>Bernard Delavoie
+        </p>
+      </li>
+      <li class="collection-item avatar">
+        <img src="images/0.jpg" alt="" class="circle">
+        <span class="title">"yes"</span>
+        <p>Eddy Line
+        </p>
+      </li>
+    </ul>
+</div>
+<div class="row">
+    <a class="waves-effect waves-light btn-large col s3 offset-s2" href="http://paypal.me/RKHANOYAN" target="_blank">Tip Me</a>
+    <a class="waves-effect waves-light btn-large col s3 offset-s2" href="{{path_for('contact')}}">Contact Me</a>
+</div>
+
+
+            
+{% endblock %}

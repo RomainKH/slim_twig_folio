@@ -1,0 +1,21 @@
+{% extends 'partials/template.twig' %}
+
+{% block title %}{{projects.title}} - Romain Khanoyan's Portfolio{% endblock %}
+
+{% block nav %}
+<li class="nav-item"><a class="nav-link" href="{{ path_for('projects') }}">Back to projects</a></li>
+{% endblock %}
+
+{% block content %}
+<h2 class="center">{{ projects.title }}</h2>
+<div class="row">
+    <img class="responsive-img col s8 offset-s2" src="{{projects.img_link}}" alt="image du projet {{projects.id}}">
+    <p class="col s12">{{projects.text}}</p>
+    <br>
+    <p class="col s12">{{projects.text}}</p>
+
+    <br>
+    <p class="col s12">{{projects.text}}</p>
+
+</div>
+{% endblock %}
