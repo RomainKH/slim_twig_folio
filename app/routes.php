@@ -73,7 +73,7 @@ $app->get(
         };
 
         $viewData = [];
-        $viewData['projects'] = $projects;
+        $viewData['projects'] = $project;
         return $this->view->render($response, 'pages/project.twig', $viewData);
     }
 )->setName('project');
@@ -88,10 +88,10 @@ $app->get(
         $remove = str_replace('search=', '', $uri);
         $result = str_replace('+', ' ', $remove);
         $query = $this->db->query("SELECT * FROM projects WHERE title LIKE '%$result%'");
-        $projects = $query->fetchAll();
+        $search = $query->fetchAll();
 
         $viewData = [];
-        $viewData['projects'] = $projects;
+        $viewData['projects'] = $search;
 
         return $this->view->render($response, 'pages/search.twig', $viewData);
     }
