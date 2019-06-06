@@ -22,7 +22,7 @@
           {% block nav %}
           {% endblock %}
         </ul>
-        <form method="for" class="form-inline my-2 my-lg-0" action ="{{ path_for('search')}}">
+        <form method="get" class="form-inline my-2 my-lg-0" action ="{{ path_for('search')}}">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='search'>
           <button type="submit" class="btn btn-primary my-2 my-sm-0">Search</button>
         </form>

@@ -80,18 +80,20 @@ $app->get(
 
 // search
 $app->get(
-    '/find/search={search:}',
-    function($request, $response, $args)
+    '/find',
+    function($request, $response)
     {
         // Fetch search
-        $query = $this->db->query("SELECT * FROM projects WHERE title LIKE '%:search%'");
-        $prepare->bindValue($arguments['id'], 'search');
-        $prepare->execute();
-        $search = $query->fetchAll();
+        $uri = $request->getUri()->getQuery();
+        $remove = str_replace('search=', '', $uri);
+        $result = str_replace('+', ' ', $remove);
+        $query = $this->db->query("SELECT * FROM projects WHERE title LIKE '%$result%'");
+        $projects = $query->fetchAll();
 
         $viewData = [];
-        $viewData['projects'] = $search;
+        $viewData['projects'] = $projects;
 
         return $this->view->render($response, 'pages/search.twig', $viewData);
     }
 )->setName('search');
+
