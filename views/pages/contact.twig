@@ -9,41 +9,34 @@
 {% endblock %}
   
 {% block content %}
-<div class="row">
-  <form class="col s8 offset-s2 ">
-    <div class="row">
-      <div class="input-field col s4 offset-s1">
-        <input id="first_name" type="text" class="validate">
-        <label for="first_name">First Name</label>
-      </div>
-      <div class="input-field col s4 offset-s2">
-        <input id="last_name" type="text" class="validate">
-        <label for="last_name">Last Name</label>
-      </div>
+<div class="jumbotron my-4">
+  <form>
+    <div class="form-group">
+      <label for="exampleFormControlInput1"> Your email address</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
     </div>
-    <div class="row">
-      <div class="input-field col s10 offset-s1">
-        <input id="subject" type="text" class="validate">
-        <label for="subject">Subject</label>
-      </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">What is the subject of your mail ?</label>
+      <select class="form-control subject" id="exampleFormControlSelect1">
+        <option>For a work to be done</option>
+        <option>To talk about internship</option>
+        <option>Ask a question</option>
+        <option>Other</option>
+      </select>
     </div>
-    <div class="row">
-      <div class="input-field col s10 offset-s1">
-        <textarea id="textarea" class="materialize-textarea"></textarea>
-        <label for="textarea">Text</label>
-      </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Example textarea</label>
+      <textarea class="form-control textarea" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
   </form>
-</div>
-<div class="row">
-    <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action">Submit</button>
-    <script>
-        let btn = document.querySelector('.btn')
-        btn.addEventListener('click', () => {
-            let subject = document.querySelector('#subject').value,
-                textarea = document.querySelector('#textarea').value
-            window.location.href = `mailto:romain.khanoyan@gmail.com?subject=${subject}&body=${textarea}`
-        })   
-    </script>
+  <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+  <script>
+      const btn = document.querySelector('.btn-submit')
+      btn.addEventListener('click', () => {
+          let subject = document.querySelector('.subject').value,
+              textarea = document.querySelector('.textarea').value
+          window.location.href = `mailto:romain.khanoyan@gmail.com?subject=${subject}&body=${textarea}`
+      })
+  </script>
 </div>
 {% endblock %}

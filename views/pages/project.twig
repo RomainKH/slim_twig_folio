@@ -7,15 +7,15 @@
 {% endblock %}
 
 {% block content %}
-<h2 class="center">{{ projects.title }}</h2>
+<h2 class="my-3">{{ projects.title }}</h2>
 <div class="row">
-    <img class="responsive-img col s8 offset-s2" src="{{projects.img_link}}" alt="image du projet {{projects.id}}">
-    <p class="col s12">{{projects.text}}</p>
+    <img class="mx-auto my-5" src="{{projects.img_link}}" alt="image du projet {{projects.id}}">
+    <p>{{projects.text}}</p>
     <br>
-    <p class="col s12">{{projects.text}}</p>
+    <p>{{projects.text}}</p>
 
     <br>
-    <p class="col s12">{{projects.text}}</p>
+    <p>{{projects.text}}</p>
 
 </div>
 {% endblock %}

@@ -56,7 +56,7 @@ $app->get(
 
 // each projects
 $app->get(
-    '/projects_{id:[0-9]}',
+    '/projects/{id:[0-9]}',
     function($request, $response, $arguments)
     {
         // Fetch project
@@ -73,7 +73,25 @@ $app->get(
         };
 
         $viewData = [];
-        $viewData['projects'] = $project;
+        $viewData['projects'] = $projects;
         return $this->view->render($response, 'pages/project.twig', $viewData);
     }
 )->setName('project');
+
+// search
+$app->get(
+    '/find/search={search:}',
+    function($request, $response, $args)
+    {
+        // Fetch search
+        $query = $this->db->query("SELECT * FROM projects WHERE title LIKE '%:search%'");
+        $prepare->bindValue($arguments['id'], 'search');
+        $prepare->execute();
+        $search = $query->fetchAll();
+
+        $viewData = [];
+        $viewData['projects'] = $search;
+
+        return $this->view->render($response, 'pages/search.twig', $viewData);
+    }
+)->setName('search');
